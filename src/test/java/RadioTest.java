@@ -25,6 +25,17 @@ class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
     @Test
+    public void testNextUnderLimitStationNull () {
+        Radio radio = new Radio();
+        radio.setCurrentStation(0);
+        radio.next();
+
+        int expected = 1;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
     public void testPrevStation () {
         Radio radio = new Radio();
         radio.setCurrentStation(8);
@@ -36,12 +47,23 @@ class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void testPrevUnderLimitStation () {
+    public void testPrevUnderLimitStationZero () {
         Radio radio = new Radio();
         radio.setCurrentStation(0);
         radio.prev();
 
         int expected = 9;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void testPrevUnderLimitStation () {
+        Radio radio = new Radio();
+        radio.setCurrentStation(9);
+        radio.prev();
+
+        int expected = 8;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
