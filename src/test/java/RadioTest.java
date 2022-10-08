@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 class RadioTest {
     @Test
     public void testNextStation() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(5);
+        Radio radio = new Radio ();
+        radio.setCurrentStation(8);
         radio.next();
 
-        int expected = 6;
+        int expected = 9;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
